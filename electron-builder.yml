@@ -11,6 +11,15 @@ win:
     - target: nsis
       arch: [x64]
   icon: build/icon.ico
+linux:
+  target:
+    - AppImage
+  icon: build/icon.png
+  category: Office
+  executableName: lime-store
+  syncDesktopName: true
+  synopsis: LimeStore desktop client
+  maintainer: LimeStore <dev@lime-store.top>
 nsis:
   oneClick: false
   perMachine: false

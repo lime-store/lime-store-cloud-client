@@ -21,6 +21,19 @@ pnpm dist
 
 Без сертификата подписи кода Windows покажет «Неизвестный издатель» (SmartScreen) — это ожидаемо.
 
+## Сборка для Linux
+
+```
+pnpm install
+pnpm dist:linux
+```
+
+Готовый файл: `dist/LimeStore-1.0.0.AppImage`. Установка не нужна: двойной клик, без root.
+
+- Обычный запуск AppImage требует FUSE 2 (`sudo dnf install fuse-libs` на Fedora, `libfuse2t64` на Ubuntu).
+- Без FUSE: `./LimeStore-1.0.0.AppImage --appimage-extract-and-run`.
+- `deb`/`rpm` в конфиге не включены: сборщик использует свой fpm, которому на Fedora нужен `libcrypt.so.1` (`sudo dnf install libxcrypt-compat`). Нужны пакеты — добавь `- deb`/`- rpm` в `linux.target` и поставь библиотеку.
+
 ## Запуск без сборки
 
 ```
