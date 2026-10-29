@@ -1,0 +1,22 @@
+appId: top.lime-store.client
+productName: LimeStore
+directories:
+  output: dist
+  buildResources: build
+files:
+  - src/**/*
+  - package.json
+win:
+  target:
+    - target: nsis
+      arch: [x64]
+  icon: build/icon.ico
+nsis:
+  oneClick: false
+  perMachine: false
+  allowElevation: false
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: LimeStore
+  artifactName: LimeStore-Setup-${version}.${ext}
+  deleteAppDataOnUninstall: false
